@@ -1,0 +1,16 @@
+from typing import Any, Optional
+
+SWAGGER_DEFAULTS: Any
+REDOC_DEFAULTS: Any
+IMPORT_STRINGS: Any
+
+class AppSettings:
+    defaults: Any = ...
+    import_strings: Any = ...
+    def __init__(self, user_settings: Any, defaults: Any, import_strings: Optional[Any] = ...) -> None: ...
+    @property
+    def user_settings(self): ...
+    def __getattr__(self, attr: Any): ...
+
+swagger_settings: Any
+redoc_settings: Any
