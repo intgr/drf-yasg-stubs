@@ -1,27 +1,35 @@
-from typing import Any, Optional
+from typing import Any, Optional, Mapping, List, Type, Union, Dict
 
-logger: Any
+from drf_yasg.inspectors.base import FieldInspector, FilterInspector, PaginatorInspector
+from rest_framework.serializers import Serializer
+
+from drf_yasg import openapi
 
 class no_body: ...
 class unset: ...
 
+_SerializerOrClass = Union[Serializer, Type[Serializer]]
+_SchemaOrRef = Union[openapi.Schema, openapi.SchemaRef]
+
 def swagger_auto_schema(
-    method: Optional[Any] = ...,
-    methods: Optional[Any] = ...,
-    auto_schema: Any = ...,
-    request_body: Optional[Any] = ...,
-    query_serializer: Optional[Any] = ...,
-    manual_parameters: Optional[Any] = ...,
-    operation_id: Optional[Any] = ...,
-    operation_description: Optional[Any] = ...,
-    operation_summary: Optional[Any] = ...,
-    security: Optional[Any] = ...,
-    deprecated: Optional[Any] = ...,
-    responses: Optional[Any] = ...,
-    field_inspectors: Optional[Any] = ...,
-    filter_inspectors: Optional[Any] = ...,
-    paginator_inspectors: Optional[Any] = ...,
-    tags: Optional[Any] = ...,
+    method: Optional[str] = ...,
+    methods: Optional[List[str]] = ...,
+    auto_schema: Optional[Type] = ...,
+    request_body: Optional[Union[_SchemaOrRef, _SerializerOrClass]] = ...,
+    query_serializer: Optional[_SerializerOrClass] = ...,
+    manual_parameters: Optional[List[openapi.Parameter]] = ...,
+    operation_id: Optional[str] = ...,
+    operation_description: Optional[str] = ...,
+    operation_summary: Optional[str] = ...,
+    security: Optional[List[dict]] = ...,  # TODO would pefer to have a more precise type for 'dict'
+    deprecated: Optional[bool] = ...,
+    responses: Optional[
+        Dict[Union[int, str], Union[_SchemaOrRef, openapi.Response, _SerializerOrClass, str, None],]
+    ] = ...,
+    field_inspectors: Optional[List[Type[FieldInspector]]] = ...,
+    filter_inspectors: Optional[List[Type[FilterInspector]]] = ...,
+    paginator_inspectors: Optional[List[Type[PaginatorInspector]]] = ...,
+    tags: Optional[List[str]] = ...,
     **extra_overrides: Any
 ): ...
 def swagger_serializer_method(serializer_or_field: Any): ...
@@ -40,4 +48,4 @@ def get_serializer_ref_name(serializer: Any): ...
 def force_real_str(s: Any, encoding: str = ..., strings_only: bool = ..., errors: str = ...): ...
 def field_value_to_representation(field: Any, value: Any): ...
 def get_field_default(field: Any): ...
-def dict_has_ordered_keys(obj: Any): ...
+def dict_has_ordered_keys(obj: Mapping): ...

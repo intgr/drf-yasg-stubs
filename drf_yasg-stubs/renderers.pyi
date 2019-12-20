@@ -2,7 +2,6 @@ from typing import Any, Optional
 
 from rest_framework.renderers import BaseRenderer
 
-
 class _SpecRenderer(BaseRenderer):
     charset: str = ...
     validators: Any = ...
