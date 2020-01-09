@@ -4,6 +4,9 @@
 
 # Typing stubs for drf-yasg library
 
+[![PyPI version](https://badge.fury.io/py/drf-yasg-stubs.svg)](https://badge.fury.io/py/drf-yasg-stubs)
+[![Tests status](https://github.com/intgr/drf-yasg-stubs/workflows/Tests/badge.svg?branch=master)](https://github.com/intgr/drf-yasg-stubs/actions?query=workflow:Tests)
+
 PEP 484 type stubs for Mypy and PyCharm.
 
 This package contains type stubs to provide more precise static types and
