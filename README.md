@@ -27,4 +27,6 @@ That's all, run Mypy and it should be able to pick up these stubs.
 Release process: https://twine.readthedocs.io/en/stable/#using-twine
 
 * docker build --tag=drf-yasg-stubs .
+* git tag $VERSION -a -m 'Release'
+* git push --tags
 * docker run --rm -it drf-yasg-stubs twine upload 'dist/*'
