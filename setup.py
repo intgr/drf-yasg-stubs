@@ -11,7 +11,7 @@ setup(
     python_requires=">=3.6",
     install_requires=["drf-yasg"],
     packages=["drf_yasg-stubs"],
-    package_data={"drf_yasg-stubs": ["*.pyi"],},
+    package_data={"drf_yasg-stubs": ["*.pyi"]},
     classifiers=[
         "Framework :: Django",
         "Intended Audience :: Developers",

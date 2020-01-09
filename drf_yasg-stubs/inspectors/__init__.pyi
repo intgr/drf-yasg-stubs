@@ -22,8 +22,5 @@ from .field import (
     SimpleFieldInspector,
     StringDefaultFieldInspector,
 )
-from .query import (
-    CoreAPICompatInspector,
-    DjangoRestResponsePagination,
-)
+from .query import CoreAPICompatInspector, DjangoRestResponsePagination
 from .view import SwaggerAutoSchema

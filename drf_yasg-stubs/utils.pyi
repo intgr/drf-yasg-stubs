@@ -24,7 +24,7 @@ def swagger_auto_schema(
     security: Optional[List[dict]] = ...,  # TODO would pefer to have a more precise type for 'dict'
     deprecated: Optional[bool] = ...,
     responses: Optional[
-        Dict[Union[int, str], Union[_SchemaOrRef, openapi.Response, _SerializerOrClass, str, None],]
+        Dict[Union[int, str], Union[_SchemaOrRef, openapi.Response, _SerializerOrClass, str, None]]
     ] = ...,
     field_inspectors: Optional[List[Type[FieldInspector]]] = ...,
     filter_inspectors: Optional[List[Type[FilterInspector]]] = ...,
