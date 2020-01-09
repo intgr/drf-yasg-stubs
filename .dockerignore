@@ -1,4 +1,4 @@
-# Please keep in sync with .dockerignore
+# Please keep in sync with .gitignore
 *.egg-info
 __pycache__/
 out/
