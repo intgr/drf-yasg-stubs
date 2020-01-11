@@ -1,8 +1,8 @@
-from typing import Any, Optional
+from typing import Any, Optional, Dict, List
 
-SWAGGER_DEFAULTS: Any
-REDOC_DEFAULTS: Any
-IMPORT_STRINGS: Any
+SWAGGER_DEFAULTS: Dict[str, Any]  # Could use TypedDict here
+REDOC_DEFAULTS: Dict[str, Any]
+IMPORT_STRINGS: List[str]
 
 class AppSettings:
     defaults: Any = ...

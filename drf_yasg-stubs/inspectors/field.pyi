@@ -1,6 +1,15 @@
-from typing import Any, Optional
+from types import ModuleType
+from typing import Any, Optional, Callable, Tuple, List, Union, Dict
+
+from django.db import models
+from rest_framework import serializers
 
 from .base import FieldInspector, SerializerInspector
+from ..openapi import _TYPE_any, _FORMAT_any
+
+# Alias for optional imported function: inspect.signature
+typing: Optional[ModuleType]
+inspect_signature: Optional[Callable]
 
 class InlineSerializerInspector(SerializerInspector):
     use_definitions: bool = ...
@@ -32,17 +41,19 @@ limit_validators: Any
 def find_limits(field: Any): ...
 def decimal_field_type(field: Any): ...
 
-model_field_to_basic_type: Any
-ip_format: Any
-serializer_field_to_basic_type: Any
-basic_type_info: Any
+_BasicType = Tuple[_TYPE_any, Union[_FORMAT_any, Callable[[serializers.Field], _FORMAT_any], None]]
+
+model_field_to_basic_type: List[Tuple[models.Field, _BasicType]]
+ip_format: Dict[str, _FORMAT_any]
+serializer_field_to_basic_type: List[Tuple[serializers.Field, _BasicType]]
+basic_type_info: List[Tuple[Union[models.Field, serializers.Field], _BasicType]]
 
 def get_basic_type_info(field: Any): ...
 def decimal_return_type(): ...
 def get_origin_type(hint_class: Any): ...
 def hint_class_issubclass(hint_class: Any, check_class: Any): ...
 
-hinting_type_info: Any
+hinting_type_info: List[Tuple[Union[type, Tuple[type, ...]], _BasicType]]
 
 def inspect_collection_hint_class(hint_class: Any): ...
 def get_basic_type_info_from_hint(hint_class: Any): ...
