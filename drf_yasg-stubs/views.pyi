@@ -1,14 +1,16 @@
 from typing import Any, Optional, List, Type, Tuple, Dict, Literal
 
-from drf_yasg.generators import OpenAPISchemaGenerator
-from drf_yasg.openapi import Info
 from rest_framework.renderers import BaseRenderer
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-SPEC_RENDERERS: Tuple[Type[BaseRenderer, ...]]
-UI_RENDERERS: Dict[str, Tuple[Type[BaseRenderer, ...]]]
+from drf_yasg.generators import OpenAPISchemaGenerator
+from drf_yasg.openapi import Info
+from drf_yasg.renderers import _SpecRenderer
+
+SPEC_RENDERERS: Tuple[Type[_SpecRenderer], ...]
+UI_RENDERERS: Dict[str, Tuple[Type[BaseRenderer], ...]]
 
 class _SchemaView(APIView):
     schema: Literal[None]
