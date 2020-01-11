@@ -6,15 +6,13 @@ from drf_yasg.codecs import _OpenAPICodec
 
 
 class _SpecRenderer(BaseRenderer):
-    validators: List[str] = ...   # XXX unused?
+    validators: List[str] = ...  # XXX unused?
     codec_class: _OpenAPICodec = ...
     @classmethod
     def with_validators(cls, validators: List[str]): ...
 
 class OpenAPIRenderer(_SpecRenderer): ...
-
 class SwaggerJSONRenderer(_SpecRenderer): ...
-
 class SwaggerYAMLRenderer(_SpecRenderer): ...
 
 class _UIRenderer(BaseRenderer):

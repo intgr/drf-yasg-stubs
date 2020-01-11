@@ -2,7 +2,6 @@ from typing import Any, Optional, Callable, Dict, OrderedDict
 
 from ruamel import yaml
 
-
 class _SwaggerSpecDict(OrderedDict): ...
 
 VALIDATORS: Dict[str, Callable[[_SwaggerSpecDict], None]]
