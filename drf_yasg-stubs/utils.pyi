@@ -10,7 +10,6 @@ from drf_yasg import openapi
 from drf_yasg.inspectors.base import FieldInspector, FilterInspector, PaginatorInspector
 from drf_yasg.openapi import Parameter, _IN_any
 
-
 class no_body: ...
 class unset: ...
 

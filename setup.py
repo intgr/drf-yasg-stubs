@@ -16,7 +16,7 @@ def find_stub_files(name: str) -> List[str]:
     result = []
     for root, dirs, files in os.walk(name):
         for file in files:
-            if file.endswith('.pyi'):
+            if file.endswith(".pyi"):
                 if os.path.sep in root:
                     sub_root = root.split(os.path.sep, 1)[-1]
                     file = os.path.join(sub_root, file)
@@ -37,7 +37,7 @@ setup(
     python_requires=">=3.6",
     install_requires=[],
     packages=["drf_yasg-stubs"],
-    package_data={"drf_yasg-stubs": find_stub_files('drf_yasg-stubs')},
+    package_data={"drf_yasg-stubs": find_stub_files("drf_yasg-stubs")},
     classifiers=[
         "Framework :: Django",
         "Intended Audience :: Developers",

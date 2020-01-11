@@ -4,7 +4,6 @@ from rest_framework.renderers import BaseRenderer
 
 from drf_yasg.codecs import _OpenAPICodec
 
-
 class _SpecRenderer(BaseRenderer):
     validators: List[str] = ...  # XXX unused?
     codec_class: _OpenAPICodec = ...
