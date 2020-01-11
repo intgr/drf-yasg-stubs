@@ -1,7 +1,28 @@
+import os
+from typing import List
+
 from setuptools import setup
 
 with open("README.md") as f:
     readme = f.read()
+
+
+def find_stub_files(name: str) -> List[str]:
+    """
+    It seems setuptools does not support recursive patterns.
+
+    This function is stolen from django-stubs project :)
+    """
+    result = []
+    for root, dirs, files in os.walk(name):
+        for file in files:
+            if file.endswith(".pyi"):
+                if os.path.sep in root:
+                    sub_root = root.split(os.path.sep, 1)[-1]
+                    file = os.path.join(sub_root, file)
+                result.append(file)
+    return result
+
 
 setup(
     name="drf-yasg-stubs",
@@ -16,7 +37,7 @@ setup(
     python_requires=">=3.6",
     install_requires=["drf-yasg"],
     packages=["drf_yasg-stubs"],
-    package_data={"drf_yasg-stubs": ["*.pyi"]},
+    package_data={"drf_yasg-stubs": find_stub_files("drf_yasg-stubs")},
     classifiers=[
         "Framework :: Django",
         "Intended Audience :: Developers",
