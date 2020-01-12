@@ -26,7 +26,7 @@ def find_stub_files(name: str) -> List[str]:
 
 setup(
     name="drf-yasg-stubs",
-    version="0.0.dev1",
+    version="0.1.0",
     description="Typing stubs for drf-yasg library (PEP 484 stubs for Mypy and PyCharm)",
     license="MIT",
     url="https://github.com/intgr/drf-yasg-stubs",
