@@ -35,7 +35,7 @@ setup(
     long_description=readme,
     long_description_content_type="text/markdown",
     python_requires=">=3.6",
-    install_requires=["drf-yasg"],
+    install_requires=[],
     packages=["drf_yasg-stubs"],
     package_data={"drf_yasg-stubs": find_stub_files("drf_yasg-stubs")},
     classifiers=[
