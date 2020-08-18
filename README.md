@@ -22,6 +22,16 @@ pip install drf-yasg-stubs
 
 That's all, run Mypy and it should be able to pick up these stubs.
 
+## Changelog
+
+#### 0.1.1 (2020-08-18)
+* Fixed SchemaView method annotations (#2)
+* Fixed @swagger_serializer_method decorator hints
+* Improved hints for EndpointEnumerator, OpenAPISchemaGenerator
+
+#### 0.1.0 (2020-01-13)
+* Initial release
+
 ## Development
 
 Release process: https://twine.readthedocs.io/en/stable/#using-twine
