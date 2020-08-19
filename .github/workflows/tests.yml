@@ -1,13 +1,20 @@
 name: Tests
 
-on: [push]
+on:
+  push:
+    branches: [master]
+  pull_request:
+  schedule:
+    # 16:19 UTC on Tuesdays
+    - cron: "19 16 * * tue"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [tests]
 
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v1
       - name: Build the Docker image
