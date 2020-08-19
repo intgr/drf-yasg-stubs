@@ -1,5 +1,7 @@
-from typing import Any, Optional, List, Type, Tuple, Dict, Literal, Callable
+from typing import Any, Optional, List, Type, Tuple, Dict, Callable
 
+from rest_framework.authentication import BaseAuthentication
+from rest_framework.permissions import BasePermission
 from rest_framework.renderers import BaseRenderer
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -15,12 +17,8 @@ UI_RENDERERS: Dict[str, Tuple[Type[BaseRenderer], ...]]
 _View = Callable[..., Response]
 
 class _SchemaView(APIView):
-    schema: Literal[None]
     public: bool
     generator_class = Type[OpenAPISchemaGenerator]
-    authentication_classes = Tuple[str]
-    permission_classes = Tuple[str]
-    renderer_classes = Tuple[Any, ...]  # TODO
     def get(
         self, request: Request, version: str = ..., format: Optional[Any] = ...  # XXX format is unused?
     ) -> Response: ...
@@ -42,6 +40,6 @@ def get_schema_view(
     public: bool = ...,
     validators: Optional[List[str]] = ...,
     generator_class: Optional[Type[OpenAPISchemaGenerator]] = ...,
-    authentication_classes: Optional[Tuple[str]] = ...,
-    permission_classes: Optional[Tuple[str]] = ...,
+    authentication_classes: Optional[Tuple[Type[BaseAuthentication]]] = ...,
+    permission_classes: Optional[Tuple[Type[BasePermission]]] = ...,
 ) -> _SchemaView: ...
