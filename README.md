@@ -24,6 +24,9 @@ That's all, run Mypy and it should be able to pick up these stubs.
 
 ## Changelog
 
+#### 0.1.2 (2020-08-19)
+* Fixed get_schema_view() arguments authentication_classes, permission_classes (#6)
+
 #### 0.1.1 (2020-08-18)
 * Fixed SchemaView method annotations (#2)
 * Fixed @swagger_serializer_method decorator hints
