@@ -40,6 +40,6 @@ def get_schema_view(
     public: bool = ...,
     validators: Optional[List[str]] = ...,
     generator_class: Optional[Type[OpenAPISchemaGenerator]] = ...,
-    authentication_classes: Optional[Tuple[Type[BaseAuthentication]]] = ...,
-    permission_classes: Optional[Tuple[Type[BasePermission]]] = ...,
+    authentication_classes: Optional[List[Type[BaseAuthentication]]] = ...,
+    permission_classes: Optional[List[Type[BasePermission]]] = ...,
 ) -> _SchemaView: ...
