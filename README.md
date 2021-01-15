@@ -24,6 +24,12 @@ That's all, run Mypy and it should be able to pick up these stubs.
 
 ## Changelog
 
+#### 0.1.3 (2021-01-15)
+* Add re-exports to `inspectors/__init__.py` (#13)
+* get_schema_view() now expects list arguments instead of tuple, as in
+  drf-yasg 1.20 (#11)
+* Type hints for OpenAPISchemaGenerator (#10)
+
 #### 0.1.2 (2020-08-19)
 * Fixed get_schema_view() arguments authentication_classes, permission_classes (#6)
 
@@ -40,6 +46,5 @@ That's all, run Mypy and it should be able to pick up these stubs.
 Release process: https://twine.readthedocs.io/en/stable/#using-twine
 
 * docker build --tag=drf-yasg-stubs .
-* git tag $VERSION -a -m 'Release'
-* git push --tags
 * docker run --rm -it drf-yasg-stubs twine upload 'dist/*'
+* Create tag at https://github.com/intgr/drf-yasg-stubs/releases/new
