@@ -23,7 +23,7 @@ def swagger_auto_schema(
     method: Optional[str] = ...,
     methods: Optional[List[str]] = ...,
     auto_schema: Optional[Type] = ...,
-    request_body: Optional[Union[_SchemaOrRef, _SerializerOrClass]] = ...,
+    request_body: Optional[Union[_SchemaOrRef, _SerializerOrClass, Type[no_body]]] = ...,
     query_serializer: Optional[_SerializerOrClass] = ...,
     manual_parameters: Optional[List[openapi.Parameter]] = ...,
     operation_id: Optional[str] = ...,
