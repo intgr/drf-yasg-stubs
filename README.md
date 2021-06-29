@@ -24,6 +24,11 @@ That's all, run Mypy and it should be able to pick up these stubs.
 
 ## Changelog
 
+#### 0.1.4 (2021-06-29)
+* Allow passing `request_body=no_body` to `swagger_auto_schema` (#14)
+
+  Contributed by Étienne Noss @etene
+
 #### 0.1.3 (2021-01-15)
 * Add re-exports to `inspectors/__init__.py` (#13)
 * get_schema_view() now expects list arguments instead of tuple, as in
